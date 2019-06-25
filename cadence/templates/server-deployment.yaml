@@ -85,49 +85,6 @@ spec:
             protocol: TCP
         {{- end }}
 
-        livenessProbe:
-          {{- if .Values.server.frontend.enabled }}
-          initialDelaySeconds: 150
-          tcpSocket:
-            port: {{ .Values.server.frontend.service.port }}
-          {{- end }}
-          {{- if .Values.server.matching.enabled }}
-          initialDelaySeconds: 150
-          tcpSocket:
-            port: {{ .Values.server.matching.service.port }}
-          {{- end }}
-          {{- if .Values.server.history.enabled }}
-          initialDelaySeconds: 150
-          tcpSocket:
-            port: {{ .Values.server.history.service.port }}
-          {{- end }}
-          {{- if .Values.server.worker.enabled }}
-          initialDelaySeconds: 150
-          tcpSocket:
-            port: {{ .Values.server.worker.service.port }}
-          {{- end }}
-
-        readinessProbe:
-          {{- if .Values.server.frontend.enabled }}
-          initialDelaySeconds: 50
-          tcpSocket:
-            port: {{ .Values.server.frontend.service.port }}
-          {{- end }}
-          {{- if .Values.server.matching.enabled }}
-          initialDelaySeconds: 50
-          tcpSocket:
-            port: {{ .Values.server.matching.service.port }}
-          {{- end }}
-          {{- if .Values.server.history.enabled }}
-          initialDelaySeconds: 50
-          tcpSocket:
-            port: {{ .Values.server.history.service.port }}
-          {{- end }}
-          {{- if .Values.server.worker.enabled }}
-          initialDelaySeconds: 50
-          tcpSocket:
-            port: {{ .Values.server.worker.service.port }}
-          {{- end }}
         volumeMounts:
 {{- if semverCompare "<= 0.5.5" .Values.server.image.tag }}
         - name: "{{ .Chart.Name }}-config"
