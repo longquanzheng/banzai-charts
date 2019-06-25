@@ -35,7 +35,7 @@ data:
 
     ringpop:
       name: cadence
-      bootstrapMode: hosts
+      bootstrapMode: ${RINGPOP_MODE}
       bootstrapHosts: ${RINGPOP_SEEDS_JSON_ARRAY}
       maxJoinDuration: 30s
 
@@ -115,6 +115,6 @@ data:
           - name: "custom-bucket-2"
             owner: "custom-owner-2"
             retentionDays: 5
-    
+
     publicClient:
       hostPort: "127.0.0.1:{{ .Values.server.frontend.service.port }}"

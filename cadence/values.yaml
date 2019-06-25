@@ -52,7 +52,7 @@ server:
       port: 8002
 
   worker:
-    enabled: false
+    enabled: true
     bindOnIP: "0.0.0.0"
     service:
       type: ClusterIP
