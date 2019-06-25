@@ -6,7 +6,7 @@ server:
   replicaCount: 1
 
   image:
-    repository: ubercadence/server
+    repository: ubercadence/sudarshan
     tag: 0.5.8
     pullPolicy: IfNotPresent
 
@@ -31,7 +31,7 @@ server:
       port: 8000
 
   matching:
-    enabled: true
+    enabled: false
     bindOnIP: "0.0.0.0"
     service:
       type: ClusterIP
@@ -41,7 +41,7 @@ server:
       port: 8001
 
   history:
-    enabled: true
+    enabled: false
     bindOnIP: "0.0.0.0"
     numHistoryShards: 4
     service:
@@ -52,7 +52,7 @@ server:
       port: 8002
 
   worker:
-    enabled: true
+    enabled: false
     bindOnIP: "0.0.0.0"
     service:
       type: ClusterIP
